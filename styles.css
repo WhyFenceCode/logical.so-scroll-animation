@@ -9,11 +9,22 @@ body {
   color: #141616;
   background-color: #e6e9ea;
   font-size: 28px;
+  overflow-x: hidden;
 }
 
 h1 {
   font-size: 110px;
   margin-bottom: 1rem;
+}
+
+.standerd-extention {
+  height: 10vh;
+  width: 100%;
+}
+
+.footer-extention {
+  height: 15vh;
+  width: 100%;
 }
 
 .full-screen-section {
@@ -35,6 +46,8 @@ h1 {
   display: flex;
   text-align: start;
   padding: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
 }
 
 .top-section .left {
@@ -54,6 +67,35 @@ h1 {
   --value: min(var(--scroll), 30) * 50 / 30;
   width: calc(50vw + 1vw * var(--value));
   transform: translateY(calc(50% - 1% * var(--value)));
+}
+
+.move-left-img {
+  position: absolute;
+  translate: calc((-2% * (max(var(--scroll), 25) - 25) * 100 / 75) - 25%) 0;
+  width: 40%;
+  bottom: 25%;
+}
+
+.move-right-img {
+  position: absolute;
+  translate: calc(1% * (max(var(--scroll), 25) - 25) * 100 / 75) 0;
+  width: 25%;
+  bottom: -15%;
+  right: -7%
+}
+
+.move-half-img {
+  position: absolute;
+  translate: 0 calc(0.5% * (max(var(--scroll), 25) - 25) * 100 / 75);
+  width: 40%;
+  top: 0;
+}
+
+.move-double-img {
+  position: absolute;
+  translate: -10% calc(-2% * (max(var(--scroll), 25) - 25) * 100 / 75);
+  width: 30%;
+  bottom: -25%;
 }
 
 @media (width <= 1000px) {
@@ -109,5 +151,5 @@ h1 {
 
 [data-img-to-show] {
   position: absolute;
-  top: 20%;
+  top: 17%;
 }
